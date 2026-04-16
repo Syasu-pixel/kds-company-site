@@ -19,16 +19,16 @@
   <meta name="theme-color" content="#0f3d75" />
   <style>
     :root{
-      --bg:#f5f7fb;
+      --bg:#f3f6fb;
       --card:#ffffff;
-      --text:#17212b;
-      --muted:#5f6b7a;
-      --line:#dbe3ee;
+      --text:#18212e;
+      --muted:#5b6878;
+      --line:#d7e1ee;
       --primary:#0f3d75;
-      --primary-2:#1958a8;
-      --dark:#0d1e33;
-      --shadow:0 18px 50px rgba(13,30,51,.10);
-      --radius:24px;
+      --primary-2:#1f5dab;
+      --navy:#0c223f;
+      --shadow:0 14px 40px rgba(12,34,63,.10);
+      --radius:22px;
       --container:min(1120px, calc(100% - 32px));
     }
 
@@ -39,7 +39,7 @@
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
       color:var(--text);
       background:var(--bg);
-      line-height:1.7;
+      line-height:1.72;
       -webkit-text-size-adjust:100%;
     }
 
@@ -52,9 +52,9 @@
       position:sticky;
       top:0;
       z-index:1000;
-      background:rgba(255,255,255,.92);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(219,227,238,.9);
+      background:rgba(255,255,255,.93);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid rgba(215,225,238,.95);
     }
 
     .header-inner{
@@ -65,421 +65,126 @@
       gap:16px;
     }
 
-    .brand{
-      display:flex;
-      flex-direction:column;
-      gap:2px;
-      min-width:0;
-    }
+    .brand{display:flex;flex-direction:column;gap:2px;min-width:0}
+    .brand-sub{margin:0;font-size:11px;letter-spacing:.18em;color:var(--primary-2);font-weight:800}
+    .brand-main{margin:0;font-size:22px;font-weight:800;line-height:1.2}
 
-    .brand-sub{
-      margin:0;
-      font-size:11px;
-      letter-spacing:.18em;
-      color:var(--primary-2);
-      font-weight:800;
-    }
-
-    .brand-main{
-      margin:0;
-      font-size:22px;
-      font-weight:800;
-      line-height:1.2;
-    }
-
-    .header-nav{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-
-    .header-nav a{
-      padding:10px 14px;
-      border-radius:999px;
-      font-size:14px;
-      font-weight:700;
-      color:var(--muted);
-      transition:.2s ease;
-    }
-
-    .header-nav a:hover{
-      background:#eef4ff;
-      color:var(--primary);
-    }
-
-    .header-cta{
-      background:var(--primary);
-      color:#fff !important;
-      box-shadow:0 10px 30px rgba(15,61,117,.24);
-    }
+    .header-nav{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .header-nav a{padding:10px 14px;border-radius:999px;font-size:14px;font-weight:700;color:var(--muted);transition:.2s ease}
+    .header-nav a:hover{background:#edf3fd;color:var(--primary)}
+    .header-cta{background:var(--primary);color:#fff !important;box-shadow:0 10px 24px rgba(15,61,117,.25)}
 
     .hero{
       position:relative;
-      overflow:hidden;
-      background:
-        radial-gradient(circle at 10% 20%, rgba(67,144,255,.20), transparent 26%),
-        radial-gradient(circle at 90% 10%, rgba(128,189,255,.22), transparent 28%),
-        linear-gradient(135deg, #0c2240 0%, #103969 55%, #11457c 100%);
       color:#fff;
+      background:linear-gradient(120deg, rgba(11,29,54,.86), rgba(11,29,54,.60)), url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+      overflow:hidden;
     }
 
-    .hero::before{
+    .hero::after{
       content:"";
       position:absolute;
       inset:0;
-      background:
-        linear-gradient(transparent 0, rgba(255,255,255,.04) 1px, transparent 1px),
-        linear-gradient(90deg, transparent 0, rgba(255,255,255,.04) 1px, transparent 1px);
-      background-size:24px 24px;
-      opacity:.25;
+      background:linear-gradient(180deg, rgba(9,24,45,.22), rgba(9,24,45,.76));
       pointer-events:none;
     }
 
     .hero-inner{
       position:relative;
+      z-index:1;
       display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:32px;
-      padding:72px 0 64px;
-      align-items:center;
+      grid-template-columns:1.05fr .95fr;
+      gap:26px;
+      align-items:end;
+      padding:64px 0 58px;
     }
 
-    .hero-badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 14px;
-      border:1px solid rgba(255,255,255,.2);
-      border-radius:999px;
-      background:rgba(255,255,255,.10);
-      color:#d8e8ff;
-      font-size:13px;
-      font-weight:700;
-      margin-bottom:18px;
-    }
-
-    .hero h1{
-      margin:0;
-      font-size:clamp(34px, 5vw, 56px);
-      line-height:1.25;
-      letter-spacing:.01em;
-    }
-
-    .hero-lead{
-      margin:18px 0 0;
-      font-size:17px;
-      color:#deebff;
-      max-width:760px;
-    }
-
-    .hero-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:26px;
-    }
-
-    .btn{
-      min-height:52px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:12px 18px;
-      border-radius:16px;
-      font-size:15px;
-      font-weight:800;
-      transition:.2s ease;
-      border:1px solid transparent;
-    }
-
-    .btn-primary{
-      background:#fff;
-      color:var(--dark);
-      box-shadow:0 12px 30px rgba(0,0,0,.16);
-    }
-
-    .btn-primary:hover{transform:translateY(-1px)}
-
-    .hero-points{
-      margin-top:28px;
-      display:grid;
-      grid-template-columns:repeat(3, minmax(0,1fr));
-      gap:14px;
-    }
-
-    .hero-point{
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:20px;
-      padding:16px 14px;
-    }
-
-    .hero-point-label{
-      display:block;
-      font-size:12px;
-      color:#c9dcff;
-      font-weight:700;
-      margin-bottom:6px;
-      letter-spacing:.04em;
-    }
-
-    .hero-point strong{
-      display:block;
-      font-size:14px;
-      line-height:1.5;
-    }
-
-    .hero-card{
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.14);
+    .hero-copy{
+      background:rgba(8,23,43,.45);
+      border:1px solid rgba(255,255,255,.16);
       border-radius:28px;
       padding:24px;
-      backdrop-filter:blur(10px);
-      box-shadow:0 18px 50px rgba(0,0,0,.18);
+      backdrop-filter:blur(4px);
     }
 
-    .hero-card h2{
-      margin:0 0 12px;
-      font-size:21px;
-      line-height:1.4;
-    }
+    .hero-badge{display:inline-flex;align-items:center;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);font-size:12px;font-weight:800;color:#dcecff;margin-bottom:14px}
+    .hero h1{margin:0;font-size:clamp(33px,5vw,54px);line-height:1.22;letter-spacing:.01em}
+    .hero-lead{margin:16px 0 0;font-size:16px;color:#dbe9ff}
 
-    .hero-list{
-      list-style:none;
-      padding:0;
-      margin:0;
-      display:grid;
-      gap:12px;
-    }
+    .hero-meta{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+    .hero-meta li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#eaf2ff}
+    .hero-meta strong{min-width:68px;color:#9ac4ff;font-size:12px;letter-spacing:.07em}
 
-    .hero-list li{
-      display:flex;
-      align-items:flex-start;
-      gap:12px;
-      background:rgba(255,255,255,.08);
-      border-radius:18px;
-      padding:14px;
-      color:#eef5ff;
-      font-size:14px;
-      line-height:1.6;
-    }
+    .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+    .btn{min-height:50px;display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:14px;font-size:15px;font-weight:800;border:1px solid transparent;transition:.2s ease}
+    .btn-primary{background:#fff;color:var(--navy);box-shadow:0 10px 24px rgba(0,0,0,.2)}
+    .btn-secondary{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.3);color:#fff}
 
-    .hero-list li::before{
-      content:"";
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      background:#7fc0ff;
-      margin-top:8px;
-      flex:0 0 auto;
-    }
+    .hero-panel{background:rgba(10,28,52,.58);border:1px solid rgba(255,255,255,.14);border-radius:28px;padding:22px;backdrop-filter:blur(6px)}
+    .hero-panel-title{margin:0 0 12px;font-size:20px;line-height:1.35}
+    .hero-service-list{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+    .hero-service-list li{background:rgba(255,255,255,.08);border-radius:14px;padding:12px 14px;font-size:14px;line-height:1.55;display:flex;gap:9px;align-items:flex-start}
+    .hero-service-list li::before{content:"";width:8px;height:8px;background:#8fc4ff;border-radius:50%;margin-top:9px;flex:0 0 auto}
 
-    .section{
-      padding:64px 0;
-    }
+    .section{padding:62px 0}
+    .section-head{margin-bottom:26px}
+    .section-label{display:inline-block;margin:0 0 10px;font-size:12px;font-weight:800;letter-spacing:.17em;color:var(--primary-2)}
+    .section-title{margin:0;font-size:clamp(28px,4vw,40px);line-height:1.25}
+    .section-desc{margin:12px 0 0;color:var(--muted);font-size:16px;max-width:780px}
 
-    .section-head{
-      margin-bottom:28px;
-    }
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
 
-    .section-label{
-      display:inline-block;
-      margin:0 0 10px;
-      color:var(--primary-2);
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:.18em;
-    }
+    .summary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:-28px;position:relative;z-index:2}
+    .summary-card{padding:18px}
+    .summary-card h3{margin:0 0 8px;font-size:18px;line-height:1.35}
+    .summary-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.65}
 
-    .section-title{
-      margin:0;
-      font-size:clamp(28px, 4vw, 40px);
-      line-height:1.25;
-    }
+    .service-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .service-card{overflow:hidden}
+    .service-thumb{width:100%;aspect-ratio:16/9;object-fit:cover;border-bottom:1px solid var(--line)}
+    .service-body{padding:18px 20px 20px}
+    .service-tag{display:inline-block;margin:0 0 8px;padding:5px 10px;border-radius:999px;background:#eaf2ff;color:var(--primary);font-size:11px;font-weight:800;letter-spacing:.06em}
+    .service-card h3{margin:0 0 8px;font-size:20px;line-height:1.4}
+    .service-card p{margin:0;color:var(--muted);font-size:15px}
 
-    .section-desc{
-      margin:14px 0 0;
-      max-width:760px;
-      color:var(--muted);
-      font-size:16px;
-    }
+    .strength-wrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .strength-card{padding:22px}
+    .strength-number{display:inline-flex;width:34px;height:34px;border-radius:50%;align-items:center;justify-content:center;background:#e9f2ff;color:var(--primary-2);font-size:14px;font-weight:800;margin-bottom:10px}
+    .strength-card h3{margin:0 0 8px;font-size:20px}
+    .strength-card p{margin:0;color:var(--muted);font-size:15px}
 
-    .service-grid{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0, 1fr));
-      gap:18px;
-    }
+    .company-wrap{display:grid;grid-template-columns:1fr .9fr;gap:16px}
+    .company-box{padding:24px}
+    .company-grid{display:grid;grid-template-columns:180px 1fr;gap:0;border-top:1px solid var(--line)}
+    .company-grid dt,.company-grid dd{margin:0;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
+    .company-grid dt{font-weight:800}
+    .company-grid dd{color:var(--muted);padding-left:16px}
+    .company-highlight{padding:24px;background:linear-gradient(160deg,#f7fbff,#edf4ff)}
+    .company-highlight h3{margin:0 0 12px;font-size:21px}
+    .info-list{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+    .info-list li{background:#fff;border:1px solid var(--line);border-radius:14px;padding:11px 13px;color:var(--text);font-size:14px;line-height:1.6}
 
-    .card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-    }
+    .contact-section{background:linear-gradient(180deg,#e9f1ff,#f6f9ff)}
+    .contact-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:16px;align-items:start}
+    .contact-info,.contact-form{padding:24px}
+    .contact-info h3,.contact-form h3{margin:0 0 12px;font-size:28px;line-height:1.35}
+    .contact-info p{margin:0 0 16px;color:var(--muted);font-size:15px}
+    .contact-list{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+    .contact-list li{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:14px;line-height:1.6}
+    .contact-list strong{display:block;margin-bottom:4px;color:var(--primary-2);font-size:12px;letter-spacing:.04em}
 
-    .service-card{
-      padding:24px;
-    }
+    .form-intro{margin:0 0 14px;padding:12px 14px;border-radius:14px;background:#f2f7ff;border:1px solid #d7e4f8;color:#2b3f59;font-size:14px;line-height:1.65}
 
-    .icon-box{
-      width:52px;
-      height:52px;
-      border-radius:18px;
-      background:linear-gradient(135deg, #eaf2ff 0%, #d9e8ff 100%);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:24px;
-      margin-bottom:16px;
-    }
-
-    .service-card h3{
-      margin:0 0 8px;
-      font-size:21px;
-      line-height:1.4;
-    }
-
-    .service-card p{
-      margin:0;
-      color:var(--muted);
-      font-size:15px;
-    }
-
-    .strength-wrap{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-    }
-
-    .strength-card{
-      padding:24px;
-      background:#fff;
-    }
-
-    .strength-card h3{
-      margin:0 0 10px;
-      font-size:20px;
-    }
-
-    .strength-card p{
-      margin:0;
-      color:var(--muted);
-      font-size:15px;
-    }
-
-    .company-box{
-      padding:28px;
-      background:#fff;
-    }
-
-    .company-grid{
-      display:grid;
-      grid-template-columns:180px 1fr;
-      gap:0;
-      border-top:1px solid var(--line);
-      margin-top:8px;
-    }
-
-    .company-grid dt,
-    .company-grid dd{
-      margin:0;
-      padding:16px 0;
-      border-bottom:1px solid var(--line);
-      font-size:15px;
-    }
-
-    .company-grid dt{
-      font-weight:800;
-      color:var(--text);
-    }
-
-    .company-grid dd{
-      color:var(--muted);
-      padding-left:18px;
-    }
-
-    .contact-section{
-      background:linear-gradient(180deg, #eef4ff 0%, #f7f9fd 100%);
-    }
-
-    .contact-wrap{
-      display:grid;
-      grid-template-columns:.92fr 1.08fr;
-      gap:18px;
-      align-items:start;
-    }
-
-    .contact-info,
-    .contact-form{
-      padding:28px;
-    }
-
-    .contact-info h3,
-    .contact-form h3{
-      margin:0 0 12px;
-      font-size:28px;
-      line-height:1.4;
-    }
-
-    .contact-info p{
-      margin:0 0 18px;
-      color:var(--muted);
-      font-size:15px;
-    }
-
-    .contact-list{
-      list-style:none;
-      padding:0;
-      margin:0;
-      display:grid;
-      gap:10px;
-    }
-
-    .contact-list li{
-      background:#f7faff;
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:14px 16px;
-      font-size:15px;
-      color:var(--text);
-      word-break:break-word;
-    }
-
-    .contact-list strong{
-      display:block;
-      margin-bottom:4px;
-      font-size:13px;
-      color:var(--primary-2);
-      letter-spacing:.04em;
-    }
-
-    .form-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
-    }
-
-    .field{
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-    }
-
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .field{display:flex;flex-direction:column;gap:8px}
     .field.full{grid-column:1 / -1}
+    .field label{font-size:14px;font-weight:800}
 
-    .field label{
-      font-size:14px;
-      font-weight:800;
-    }
-
-    .field input,
-    .field textarea{
+    .field input,.field textarea{
       width:100%;
-      border:1px solid #cfd9e7;
-      border-radius:16px;
-      padding:14px 16px;
+      border:1px solid #cad7e8;
+      border-radius:14px;
+      padding:13px 15px;
       font-size:15px;
       font:inherit;
       background:#fff;
@@ -488,175 +193,40 @@
       transition:border-color .2s ease, box-shadow .2s ease;
     }
 
-    .field input:focus,
-    .field textarea:focus{
-      border-color:var(--primary-2);
-      box-shadow:0 0 0 4px rgba(25,88,168,.10);
-    }
+    .field input:focus,.field textarea:focus{border-color:var(--primary-2);box-shadow:0 0 0 4px rgba(31,93,171,.12)}
+    .field textarea{min-height:148px;resize:vertical}
+    .form-note{margin:12px 0 0;font-size:12px;color:var(--muted);line-height:1.7}
 
-    .field textarea{
-      min-height:150px;
-      resize:vertical;
-    }
+    .submit-btn{width:100%;margin-top:15px;min-height:52px;border:none;cursor:pointer;background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff;font-size:15px;font-weight:800;border-radius:16px;box-shadow:0 10px 24px rgba(15,61,117,.22)}
 
-    .form-note{
-      margin:12px 0 0;
-      font-size:12px;
-      color:var(--muted);
-      line-height:1.7;
-    }
+    .site-footer{padding:24px 0 32px;background:#fff;border-top:1px solid var(--line)}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--muted);font-size:14px}
+    .footer-links{display:flex;gap:16px;flex-wrap:wrap}
 
-    .submit-btn{
-      width:100%;
-      margin-top:16px;
-      min-height:54px;
-      border:none;
-      cursor:pointer;
-      background:linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
-      color:#fff;
-      font-size:15px;
-      font-weight:800;
-      border-radius:18px;
-      box-shadow:0 14px 34px rgba(15,61,117,.22);
-    }
+    .top-link{position:fixed;right:16px;bottom:16px;width:50px;height:50px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(15,61,117,.25);font-size:20px;z-index:999;border:none;cursor:pointer}
 
-    .submit-btn:hover{opacity:.96}
-
-    .site-footer{
-      padding:26px 0 34px;
-      background:#fff;
-      border-top:1px solid var(--line);
-    }
-
-    .footer-inner{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      color:var(--muted);
-      font-size:14px;
-    }
-
-    .footer-links{
-      display:flex;
-      gap:16px;
-      flex-wrap:wrap;
-    }
-
-    .top-link{
-      position:fixed;
-      right:18px;
-      bottom:18px;
-      width:52px;
-      height:52px;
-      border-radius:50%;
-      background:var(--primary);
-      color:#fff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      box-shadow:0 14px 30px rgba(15,61,117,.25);
-      font-size:20px;
-      z-index:999;
-      border:none;
-      cursor:pointer;
-    }
-
-    .top-link:hover{
-      opacity:.96;
-    }
-
-    @media (max-width: 960px){
-      .hero-inner,
-      .contact-wrap,
-      .strength-wrap{
-        grid-template-columns:1fr;
-      }
-
-      .service-grid{
-        grid-template-columns:1fr;
-      }
-
-      .hero-points{
-        grid-template-columns:1fr;
-      }
-
-      .header-inner{
-        padding:10px 0;
-        align-items:flex-start;
-        flex-direction:column;
-      }
-
-      .header-nav{
-        width:100%;
-        justify-content:flex-start;
-      }
+    @media (max-width: 980px){
+      .hero-inner,.summary-grid,.service-grid,.strength-wrap,.company-wrap,.contact-wrap{grid-template-columns:1fr}
+      .summary-grid{margin-top:0}
     }
 
     @media (max-width: 640px){
-      .container{width:min(100% - 20px, 1120px)}
-
+      .container{width:min(100% - 20px,1120px)}
+      .header-inner{padding:10px 0;align-items:flex-start;flex-direction:column}
       .brand-main{font-size:18px}
       .brand-sub{font-size:10px}
-
-      .header-nav{
-        display:grid;
-        grid-template-columns:repeat(2, minmax(0,1fr));
-        gap:8px;
-      }
-
-      .header-nav a{
-        text-align:center;
-        padding:10px 8px;
-        font-size:12px;
-      }
-
-      .hero-inner{
-        padding:48px 0 44px;
-      }
-
-      .hero h1{
-        font-size:31px;
-      }
-
-      .hero-lead{
-        font-size:15px;
-      }
-
-      .hero-card,
-      .service-card,
-      .strength-card,
-      .contact-info,
-      .contact-form,
-      .company-box{
-        padding:20px;
-      }
-
-      .section{
-        padding:52px 0;
-      }
-
-      .section-title{
-        font-size:27px;
-      }
-
-      .company-grid{
-        grid-template-columns:1fr;
-      }
-
-      .company-grid dd{
-        padding-left:0;
-        padding-top:0;
-      }
-
-      .form-grid{
-        grid-template-columns:1fr;
-      }
-
-      .footer-inner{
-        flex-direction:column;
-        align-items:flex-start;
-      }
+      .header-nav{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;justify-content:flex-start}
+      .header-nav a{text-align:center;padding:9px 8px;font-size:12px}
+      .hero-inner{padding:44px 0 40px;gap:16px}
+      .hero-copy,.hero-panel,.summary-card,.service-body,.strength-card,.company-box,.company-highlight,.contact-info,.contact-form{padding:18px}
+      .hero h1{font-size:30px}
+      .hero-lead{font-size:15px}
+      .section{padding:50px 0}
+      .section-title{font-size:27px}
+      .company-grid{grid-template-columns:1fr}
+      .company-grid dd{padding-left:0;padding-top:0}
+      .form-grid{grid-template-columns:1fr}
+      .footer-inner{flex-direction:column;align-items:flex-start}
     }
   </style>
 </head>
@@ -680,35 +250,27 @@
     <section class="hero">
       <div class="container hero-inner">
         <div class="hero-copy">
-          <div class="hero-badge">設備工事対応・見積相談OK・お問い合わせフォーム受付</div>
-          <h1>愛知県豊田市で設備まわりの電気工事に対応</h1>
+          <div class="hero-badge">愛知県豊田市の設備電気工事パートナー</div>
+          <h1>設備・配線・試運転まで、
+            現場に合わせて丁寧に対応します</h1>
           <p class="hero-lead">
-            株式会社ケイディエスは、愛知県豊田市を拠点に、ケーブルラック設置、配線、結線、I/Oチェック、
-            試運転時の立会い、新規設備の電気工事一式、LED照明設備設置工事、設備移設に伴う電気工事一式に対応しています。
-            依頼内容を確認したうえで、現場に合った進め方でご案内します。
+            株式会社ケイディエスは愛知県豊田市を拠点に、新規設備の電気工事一式、設備移設、
+            ケーブルラック設置、配線、結線、I/Oチェック、試運転立会いまで対応しています。
           </p>
+          <ul class="hero-meta">
+            <li><strong>会社名</strong><span>株式会社ケイディエス</span></li>
+            <li><strong>対応地域</strong><span>愛知県豊田市を拠点にご相談受付</span></li>
+            <li><strong>主な対応</strong><span>設備工事・配線/結線・チェック/試運転立会い</span></li>
+          </ul>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">お問い合わせフォームはこちら</a>
-          </div>
-          <div class="hero-points">
-            <div class="hero-point">
-              <span class="hero-point-label">所在地</span>
-              <strong>愛知県豊田市</strong>
-            </div>
-            <div class="hero-point">
-              <span class="hero-point-label">対応工事</span>
-              <strong>設備・配線・照明工事</strong>
-            </div>
-            <div class="hero-point">
-              <span class="hero-point-label">ご相談方法</span>
-              <strong>お問い合わせフォーム受付</strong>
-            </div>
+            <a class="btn btn-primary" href="#contact">お問い合わせフォームへ</a>
+            <a class="btn btn-secondary" href="#services">対応業務を見る</a>
           </div>
         </div>
 
-        <aside class="hero-card" aria-label="よくあるご相談">
-          <h2>こんなご相談に対応しています</h2>
-          <ul class="hero-list">
+        <aside class="hero-panel" aria-label="ご相談例">
+          <h2 class="hero-panel-title">こんなご相談に対応しています</h2>
+          <ul class="hero-service-list">
             <li>新規設備の電気工事をまとめて相談したい</li>
             <li>設備移設に伴う電気工事を任せたい</li>
             <li>ケーブルラック設置から配線まで対応してほしい</li>
@@ -719,51 +281,82 @@
       </div>
     </section>
 
+    <section class="container summary-grid" aria-label="要点情報">
+      <article class="card summary-card">
+        <h3>対応工事</h3>
+        <p>新規設備・移設・配線/結線・ラック設置・I/Oチェック・試運転立会いまで、設備まわりを一式で対応します。</p>
+      </article>
+      <article class="card summary-card">
+        <h3>所在地</h3>
+        <p>〒470-0431 愛知県豊田市西中山町榎前58番地1。地域に根ざした体制でご相談を受け付けています。</p>
+      </article>
+      <article class="card summary-card">
+        <h3>お問い合わせ方法</h3>
+        <p>専用フォームから24時間受付。工事内容や時期が未確定でも、わかる範囲の情報でご相談可能です。</p>
+      </article>
+    </section>
+
     <section class="section" id="services">
       <div class="container">
         <div class="section-head">
           <p class="section-label">SERVICES</p>
           <h2 class="section-title">愛知県豊田市を拠点に対応している事業内容</h2>
-          <p class="section-desc">
-            愛知県豊田市を拠点に、設備電気工事の内容が伝わりやすいよう主な業務をまとめています。
-          </p>
+          <p class="section-desc">既存のご相談内容をもとに、業務をカードで整理しました。上から順に読むだけで対応範囲が分かります。</p>
         </div>
 
         <div class="service-grid">
           <article class="card service-card">
-            <div class="icon-box">⚡</div>
-            <h3>新規設備の電気工事一式</h3>
-            <p>新しい設備導入に伴う電気工事を一式で対応します。現場条件に合わせて進め方を整理しながら進行します。</p>
+            <img class="service-thumb" src="https://images.unsplash.com/photo-1581092160607-ee22731f17bf?auto=format&fit=crop&w=1200&q=80" alt="制御盤まわりの電気工事イメージ" />
+            <div class="service-body">
+              <p class="service-tag">SERVICE 01</p>
+              <h3>新規設備の電気工事一式</h3>
+              <p>新しい設備導入に伴う電気工事を一式で対応します。現場条件に合わせて進め方を整理しながら進行します。</p>
+            </div>
           </article>
 
           <article class="card service-card">
-            <div class="icon-box">🔧</div>
-            <h3>設備移設に伴う電気工事</h3>
-            <p>既存設備の移設に合わせた配線・結線・電源工事に対応します。移設後の流れまで見据えて調整します。</p>
+            <img class="service-thumb" src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1200&q=80" alt="設備移設工事のイメージ" />
+            <div class="service-body">
+              <p class="service-tag">SERVICE 02</p>
+              <h3>設備移設に伴う電気工事</h3>
+              <p>既存設備の移設に合わせた配線・結線・電源工事に対応します。移設後の流れまで見据えて調整します。</p>
+            </div>
           </article>
 
           <article class="card service-card">
-            <div class="icon-box">📐</div>
-            <h3>ケーブルラック・配線・結線</h3>
-            <p>現場に合わせたルートで、ケーブルラック設置から配線・結線まで対応します。工程に合わせたご相談も可能です。</p>
+            <img class="service-thumb" src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1200&q=80" alt="ケーブルラックと配線のイメージ" />
+            <div class="service-body">
+              <p class="service-tag">SERVICE 03</p>
+              <h3>ケーブルラック・配線・結線</h3>
+              <p>現場に合わせたルートで、ケーブルラック設置から配線・結線まで対応します。工程に合わせたご相談も可能です。</p>
+            </div>
           </article>
 
           <article class="card service-card">
-            <div class="icon-box">✅</div>
-            <h3>I/Oチェック・試運転立会い</h3>
-            <p>設備立ち上げ時の確認作業や試運転時の立会いもご相談いただけます。最後の確認まで丁寧に対応します。</p>
+            <img class="service-thumb" src="https://images.unsplash.com/photo-1565182999561-18d7dc61c393?auto=format&fit=crop&w=1200&q=80" alt="試運転チェック作業のイメージ" />
+            <div class="service-body">
+              <p class="service-tag">SERVICE 04</p>
+              <h3>I/Oチェック・試運転立会い</h3>
+              <p>設備立ち上げ時の確認作業や試運転時の立会いもご相談いただけます。最後の確認まで丁寧に対応します。</p>
+            </div>
           </article>
 
           <article class="card service-card">
-            <div class="icon-box">💡</div>
-            <h3>LED照明設備設置工事</h3>
-            <p>既存設備の状況に合わせて、LED照明設備の設置や更新工事に対応します。現場に合う形で整理して進めます。</p>
+            <img class="service-thumb" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="LED照明設備工事のイメージ" />
+            <div class="service-body">
+              <p class="service-tag">SERVICE 05</p>
+              <h3>LED照明設備設置工事</h3>
+              <p>既存設備の状況に合わせて、LED照明設備の設置や更新工事に対応します。現場に合う形で整理して進めます。</p>
+            </div>
           </article>
 
           <article class="card service-card">
-            <div class="icon-box">🏭</div>
-            <h3>設備まわりの電気工事</h3>
-            <p>設備更新や新設に伴う電源まわり、配線整理、結線作業など、現場の実情に合わせた電気工事を行います。</p>
+            <img class="service-thumb" src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80" alt="工場設備の電気工事イメージ" />
+            <div class="service-body">
+              <p class="service-tag">SERVICE 06</p>
+              <h3>設備まわりの電気工事</h3>
+              <p>設備更新や新設に伴う電源まわり、配線整理、結線作業など、現場の実情に合わせた電気工事を行います。</p>
+            </div>
           </article>
         </div>
       </div>
@@ -774,28 +367,30 @@
         <div class="section-head">
           <p class="section-label">WHY US</p>
           <h2 class="section-title">選ばれる理由</h2>
-          <p class="section-desc">
-            工事内容だけでなく、相談しやすさや進めやすさも大切にしています。
-          </p>
+          <p class="section-desc">長文になりがちな説明を、1理由ごとにブロックで整理しました。判断しやすい情報設計にしています。</p>
         </div>
 
         <div class="strength-wrap">
           <article class="card strength-card">
+            <span class="strength-number">01</span>
             <h3>現場に合わせて対応</h3>
             <p>設備や施工内容に合わせて、必要な工事を整理しながら進めます。状況を確認したうえで、無理のない形でご案内します。</p>
           </article>
 
           <article class="card strength-card">
+            <span class="strength-number">02</span>
             <h3>一式で相談しやすい</h3>
             <p>ラック設置、配線、結線、確認作業までまとめて相談しやすい体制を意識しています。工程のつながりを大切にします。</p>
           </article>
 
           <article class="card strength-card">
+            <span class="strength-number">03</span>
             <h3>設備工事の流れに合わせやすい</h3>
             <p>I/Oチェックや試運転立会いまで含めて、工程に合わせたご相談が可能です。必要なタイミングに合わせて対応します。</p>
           </article>
 
           <article class="card strength-card">
+            <span class="strength-number">04</span>
             <h3>お問い合わせフォームで受付</h3>
             <p>お仕事のご依頼・ご相談は、お問い合わせフォームから受け付けています。内容が固まりきっていない段階でもご相談いただけます。</p>
           </article>
@@ -808,43 +403,57 @@
         <div class="section-head">
           <p class="section-label">COMPANY</p>
           <h2 class="section-title">会社情報</h2>
+          <p class="section-desc">会社情報は既存内容を維持しながら、重要項目が見つけやすい2カラムで整えています。</p>
         </div>
 
-        <div class="card company-box">
-          <dl class="company-grid">
-            <dt>会社名</dt>
-            <dd>株式会社ケイディエス</dd>
+        <div class="company-wrap">
+          <div class="card company-box">
+            <dl class="company-grid">
+              <dt>会社名</dt>
+              <dd>株式会社ケイディエス</dd>
 
-            <dt>代表者名</dt>
-            <dd>中村 浩一</dd>
+              <dt>代表者名</dt>
+              <dd>中村 浩一</dd>
 
-            <dt>資本金</dt>
-            <dd>100万円</dd>
+              <dt>資本金</dt>
+              <dd>100万円</dd>
 
-            <dt>設立年月日</dt>
-            <dd>2017年7月20日</dd>
+              <dt>設立年月日</dt>
+              <dd>2017年7月20日</dd>
 
-            <dt>法人番号</dt>
-            <dd>8180301030539</dd>
+              <dt>法人番号</dt>
+              <dd>8180301030539</dd>
 
-            <dt>インボイス登録番号</dt>
-            <dd>T8180301030539</dd>
+              <dt>インボイス登録番号</dt>
+              <dd>T8180301030539</dd>
 
-            <dt>郵便番号</dt>
-            <dd>〒470-0431</dd>
+              <dt>郵便番号</dt>
+              <dd>〒470-0431</dd>
 
-            <dt>住所</dt>
-            <dd>愛知県豊田市西中山町榎前58番地1</dd>
+              <dt>住所</dt>
+              <dd>愛知県豊田市西中山町榎前58番地1</dd>
 
-            <dt>メールアドレス</dt>
-            <dd><a href="mailto:kds_kurata@hm.aitai.ne.jp">kds_kurata@hm.aitai.ne.jp</a></dd>
+              <dt>メールアドレス</dt>
+              <dd><a href="mailto:kds_kurata@hm.aitai.ne.jp">kds_kurata@hm.aitai.ne.jp</a></dd>
 
-            <dt>お問い合わせ方法</dt>
-            <dd>お問い合わせフォームより受付</dd>
+              <dt>お問い合わせ方法</dt>
+              <dd>お問い合わせフォームより受付</dd>
 
-            <dt>対応内容</dt>
-            <dd>ケーブルラック設置、配線、結線、I/Oチェック、試運転立会い、新規設備の電気工事一式、LED照明設備設置工事、設備の移設に伴う電気工事一式</dd>
-          </dl>
+              <dt>対応内容</dt>
+              <dd>ケーブルラック設置、配線、結線、I/Oチェック、試運転立会い、新規設備の電気工事一式、LED照明設備設置工事、設備の移設に伴う電気工事一式</dd>
+            </dl>
+          </div>
+
+          <aside class="card company-highlight">
+            <h3>信頼につながる基本情報</h3>
+            <ul class="info-list">
+              <li><strong>拠点：</strong>愛知県豊田市（〒470-0431）</li>
+              <li><strong>法人番号：</strong>8180301030539</li>
+              <li><strong>インボイス登録番号：</strong>T8180301030539</li>
+              <li><strong>連絡先：</strong><a href="mailto:kds_kurata@hm.aitai.ne.jp">kds_kurata@hm.aitai.ne.jp</a></li>
+              <li><strong>受付方法：</strong>お問い合わせフォームより受付</li>
+            </ul>
+          </aside>
         </div>
       </div>
     </section>
@@ -884,6 +493,7 @@
           <div class="card contact-form">
             <p class="section-label">FORM</p>
             <h3>お問い合わせフォーム</h3>
+            <p class="form-intro">フォーム送信後、担当者が内容を確認のうえご連絡します。急ぎの要件や希望時期がある場合は、本文内にご記載ください。</p>
 
             <form action="https://formspree.io/f/mdayorwa" method="POST">
               <div class="form-grid">
@@ -917,9 +527,7 @@
               <button class="submit-btn" type="submit">この内容で問い合わせる</button>
             </form>
 
-            <p class="form-note">
-              お問い合わせ内容はフォーム送信後、担当に届きます。内容を確認のうえご連絡いたします。
-            </p>
+            <p class="form-note">お問い合わせ内容はフォーム送信後、担当に届きます。内容を確認のうえご連絡いたします。</p>
           </div>
         </div>
       </div>
