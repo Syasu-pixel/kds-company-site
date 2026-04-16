@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect x="24" y="24" width="464" height="464" rx="108" fill="#122640"/>
+  <path d="M0 0h348L0 348z" fill="rgba(47,109,196,.24)"/>
+  <rect x="40" y="40" width="432" height="432" rx="92" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
+  <rect x="106" y="98" width="300" height="28" rx="14" fill="#d6992e"/>
+  <text x="256" y="296" text-anchor="middle" font-size="165" font-family="DejaVu Sans, Arial, sans-serif" font-weight="700" fill="#fff">KDS</text>
+  <rect x="150" y="366" width="212" height="16" rx="8" fill="rgba(255,255,255,.20)"/>
+  <rect x="176" y="396" width="160" height="12" rx="6" fill="rgba(255,255,255,.14)"/>
+</svg>
