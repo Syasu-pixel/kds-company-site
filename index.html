@@ -30,14 +30,18 @@
       --shadow:0 14px 40px rgba(12,34,63,.10);
       --radius:22px;
       --container:min(1120px, calc(100% - 32px));
-      --anchor-offset:130px;
-      --contact-anchor-offset:138px;
+      --anchor-offset:132px;
+      --anchor-offset-sp:168px;
     }
 
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:var(--anchor-offset)}
-    section[id]{scroll-margin-top:var(--anchor-offset)}
-    #contact{scroll-margin-top:var(--contact-anchor-offset)}
+    html{scroll-behavior:smooth;scroll-padding-top:0}
+    .anchor-target{
+      position:relative;
+      display:block;
+      height:0;
+      scroll-margin-top:var(--anchor-offset);
+    }
     body{
       margin:0;
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
@@ -283,7 +287,7 @@
     }
 
     @media (max-width: 640px){
-      :root{--anchor-offset:172px;--contact-anchor-offset:160px}
+      :root{--anchor-offset:var(--anchor-offset-sp)}
 
       .container{width:min(100% - 20px,1120px)}
       .header-inner{padding:10px 0;align-items:flex-start;flex-direction:column}
@@ -398,7 +402,8 @@
       </article>
     </section>
 
-    <section class="section" id="services">
+    <section class="section">
+      <div class="anchor-target" id="services" aria-hidden="true"></div>
       <div class="container">
         <div class="section-head">
           <p class="section-label">SERVICES</p>
@@ -463,7 +468,8 @@
       </div>
     </section>
 
-    <section class="section" id="strengths">
+    <section class="section">
+      <div class="anchor-target" id="strengths" aria-hidden="true"></div>
       <div class="container">
         <div class="section-head">
           <p class="section-label">WHY US</p>
@@ -498,7 +504,8 @@
       </div>
     </section>
 
-    <section class="section" id="company">
+    <section class="section">
+      <div class="anchor-target" id="company" aria-hidden="true"></div>
       <div class="container">
         <div class="section-head">
           <p class="section-label">COMPANY</p>
@@ -558,6 +565,7 @@
     </section>
 
     <section class="section contact-section">
+      <div class="anchor-target" id="contact" aria-hidden="true"></div>
       <div class="container">
         <div class="contact-wrap">
           <div class="card contact-info">
@@ -589,7 +597,7 @@
             </ul>
           </div>
 
-          <div class="card contact-form" id="contact">
+          <div class="card contact-form">
             <p class="section-label">FORM</p>
             <h3>お問い合わせフォーム</h3>
             <p class="form-intro">フォーム送信後、担当者が内容を確認のうえご連絡します。急ぎの要件や希望時期がある場合は、本文内にご記載ください。</p>
