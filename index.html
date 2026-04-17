@@ -220,8 +220,8 @@
 
     .strength-wrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
     .strength-card{padding:22px}
-    .strength-number{display:inline-flex;width:34px;height:34px;border-radius:50%;align-items:center;justify-content:center;background:#e9f2ff;color:var(--primary-2);font-size:14px;font-weight:800;margin-bottom:10px}
-    .strength-card h3{margin:0 0 8px;font-size:20px}
+    .strength-number{display:inline-flex;width:34px;height:34px;border-radius:50%;align-items:center;justify-content:center;background:#e9f2ff;color:var(--primary-2);font-size:14px;font-weight:800;flex-shrink:0}
+    .strength-card h3{margin:0 0 8px;font-size:20px;display:flex;align-items:center;gap:10px}
     .strength-card p{margin:0;color:var(--muted);font-size:15px}
 
     .company-wrap{display:grid;grid-template-columns:1fr .9fr;gap:16px}
@@ -480,26 +480,22 @@
 
         <div class="strength-wrap">
           <article class="card strength-card">
-            <span class="strength-number">01</span>
-            <h3>現場に合わせて対応</h3>
+            <h3><span class="strength-number">01</span>現場に合わせて対応</h3>
             <p>設備や施工内容に合わせて、必要な工事を整理しながら進めます。状況を確認したうえで、無理のない形でご案内します。</p>
           </article>
 
           <article class="card strength-card">
-            <span class="strength-number">02</span>
-            <h3>一式で相談しやすい</h3>
+            <h3><span class="strength-number">02</span>一式で相談しやすい</h3>
             <p>ラック設置、配線、結線、確認作業までまとめて相談しやすい体制を意識しています。工程のつながりを大切にします。</p>
           </article>
 
           <article class="card strength-card">
-            <span class="strength-number">03</span>
-            <h3>設備工事の流れに合わせやすい</h3>
+            <h3><span class="strength-number">03</span>設備工事の流れに合わせやすい</h3>
             <p>I/Oチェックや試運転立会いまで含めて、工程に合わせたご相談が可能です。必要なタイミングに合わせて対応します。</p>
           </article>
 
           <article class="card strength-card">
-            <span class="strength-number">04</span>
-            <h3>お問い合わせフォームで受付</h3>
+            <h3><span class="strength-number">04</span>お問い合わせフォームで受付</h3>
             <p>お仕事のご依頼・ご相談は、お問い合わせフォームから受け付けています。内容が固まりきっていない段階でもご相談いただけます。</p>
           </article>
         </div>
