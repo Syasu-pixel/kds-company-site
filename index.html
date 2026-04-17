@@ -30,12 +30,14 @@
       --shadow:0 14px 40px rgba(12,34,63,.10);
       --radius:22px;
       --container:min(1120px, calc(100% - 32px));
-      --anchor-offset:88px;
+      --anchor-offset:80px;
+      --contact-anchor-offset:72px;
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth;scroll-padding-top:var(--anchor-offset)}
     section[id]{scroll-margin-top:var(--anchor-offset)}
+    #contact{scroll-margin-top:var(--contact-anchor-offset)}
     body{
       margin:0;
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
@@ -213,7 +215,7 @@
     }
 
     @media (max-width: 640px){
-      :root{--anchor-offset:148px}
+      :root{--anchor-offset:132px;--contact-anchor-offset:108px}
 
       .container{width:min(100% - 20px,1120px)}
       .header-inner{padding:10px 0;align-items:flex-start;flex-direction:column}
