@@ -288,7 +288,7 @@
 
     @media (max-width: 640px){
       :root{--anchor-offset:var(--anchor-offset-sp)}
-      #contact.anchor-target{scroll-margin-top:196px}
+      #contact.anchor-target{scroll-margin-top:156px}
 
       .container{width:min(100% - 20px,1120px)}
       .header-inner{padding:10px 0;align-items:flex-start;flex-direction:column}
@@ -323,7 +323,7 @@
     }
 
     @media (max-width: 480px){
-      #contact.anchor-target{scroll-margin-top:188px}
+      #contact.anchor-target{scroll-margin-top:148px}
       body{padding-top:84px}
       .service-grid{grid-template-columns:1fr}
       .service-card{min-height:224px}
@@ -563,7 +563,6 @@
     </section>
 
     <section class="section contact-section">
-      <div class="anchor-target" id="contact" aria-hidden="true"></div>
       <div class="container">
         <div class="contact-wrap">
           <div class="card contact-info">
@@ -596,6 +595,7 @@
           </div>
 
           <div class="card contact-form">
+            <div class="anchor-target" id="contact" aria-hidden="true"></div>
             <p class="section-label">FORM</p>
             <h3>お問い合わせフォーム</h3>
             <p class="form-intro">フォーム送信後、担当者が内容を確認のうえご連絡します。急ぎの要件や希望時期がある場合は、本文内にご記載ください。</p>
