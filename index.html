@@ -57,12 +57,36 @@
     .container{width:var(--container);margin:0 auto}
 
     .site-header{
+      --header-link:#eef4ff;
+      --header-link-hover:#ffffff;
+      --header-link-hover-bg:rgba(255,255,255,.16);
+      --header-brand-sub:#d9e8ff;
+      --header-brand-main:#ffffff;
+      --header-cta-bg:rgba(255,255,255,.18);
+      --header-cta-text:#ffffff;
+      --header-cta-shadow:0 10px 24px rgba(4,15,29,.26);
       position:sticky;
       top:0;
       z-index:1000;
-      background:rgba(255,255,255,.93);
-      backdrop-filter:blur(8px);
-      border-bottom:1px solid rgba(215,225,238,.95);
+      background:rgba(255,255,255,.04);
+      backdrop-filter:blur(2px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+      box-shadow:none;
+      transition:background .32s ease, border-color .32s ease, box-shadow .32s ease, backdrop-filter .32s ease;
+    }
+    .site-header.is-scrolled{
+      --header-link:var(--muted);
+      --header-link-hover:var(--primary);
+      --header-link-hover-bg:#edf3fd;
+      --header-brand-sub:var(--primary-2);
+      --header-brand-main:var(--text);
+      --header-cta-bg:var(--primary);
+      --header-cta-text:#fff;
+      --header-cta-shadow:0 10px 24px rgba(15,61,117,.25);
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(215,225,238,.9);
+      box-shadow:0 8px 24px rgba(12,34,63,.10);
     }
 
     .header-inner{
@@ -76,19 +100,33 @@
     .brand{display:flex;align-items:center;gap:12px;min-width:0}
     .brand-logo{height:46px;width:auto;flex:0 0 auto}
     .brand-text{display:flex;flex-direction:column;gap:2px;min-width:0}
-    .brand-sub{margin:0;font-size:11px;letter-spacing:.18em;color:var(--primary-2);font-weight:800}
-    .brand-main{margin:0;font-size:22px;font-weight:800;line-height:1.2}
+    .brand-sub{margin:0;font-size:11px;letter-spacing:.18em;color:var(--header-brand-sub);font-weight:800;transition:color .28s ease}
+    .brand-main{margin:0;font-size:22px;font-weight:800;line-height:1.2;color:var(--header-brand-main);transition:color .28s ease}
 
     .header-nav{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-    .header-nav a{padding:10px 14px;border-radius:999px;font-size:14px;font-weight:700;color:var(--muted);transition:.2s ease}
-    .header-nav a:hover{background:#edf3fd;color:var(--primary)}
-    .header-cta{background:var(--primary);color:#fff !important;box-shadow:0 10px 24px rgba(15,61,117,.25)}
+    .header-nav a{
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:700;
+      color:var(--header-link);
+      transition:color .24s ease, background-color .24s ease, transform .24s ease, box-shadow .24s ease;
+    }
+    .header-nav a:hover,.header-nav a:focus-visible{background:var(--header-link-hover-bg);color:var(--header-link-hover)}
+    .header-nav a:active{transform:translateY(1px)}
+    .header-cta{
+      background:var(--header-cta-bg);
+      color:var(--header-cta-text) !important;
+      box-shadow:var(--header-cta-shadow);
+    }
 
     .hero{
       position:relative;
       color:#fff;
       background:linear-gradient(120deg, rgba(11,29,54,.86), rgba(11,29,54,.60)), url('https://images.pexels.com/photos/257700/pexels-photo-257700.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1200&w=2000') center/cover no-repeat;
       overflow:hidden;
+      margin-top:-72px;
+      padding-top:72px;
     }
 
     .hero::after{
@@ -293,6 +331,16 @@
       #contact.anchor-target{scroll-margin-top:156px}
 
       .container{width:min(100% - 20px,1120px)}
+      .site-header{
+        --header-link:#f4f8ff;
+        --header-link-hover:#ffffff;
+        --header-link-hover-bg:rgba(255,255,255,.14);
+      }
+      .site-header.is-scrolled{
+        --header-link:#2d3d51;
+        --header-link-hover:var(--primary);
+        --header-link-hover-bg:#e8f1ff;
+      }
       .header-inner{padding:10px 0;align-items:flex-start;flex-direction:column}
       .brand{gap:10px}
       .brand-logo{height:32px}
@@ -300,6 +348,7 @@
       .brand-sub{font-size:10px}
       .header-nav{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;justify-content:flex-start}
       .header-nav a{text-align:center;padding:9px 8px;font-size:12px}
+      .hero{margin-top:0;padding-top:0}
       .hero-inner{padding:44px 0 40px;gap:16px}
       .hero-copy,.hero-panel,.summary-card,.service-body,.strength-card,.company-box,.company-highlight,.contact-info,.contact-form{padding:18px}
       .hero h1{font-size:30px}
@@ -660,6 +709,20 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const siteHeader = document.querySelector('.site-header');
+    const heroSection = document.querySelector('.hero');
+    const updateHeaderState = function () {
+      if (!siteHeader) return;
+      const heroHeight = heroSection ? heroSection.offsetHeight : 360;
+      const threshold = Math.min(80, Math.max(48, heroHeight * 0.14));
+      siteHeader.classList.toggle('is-scrolled', window.scrollY >= threshold);
+    };
+    updateHeaderState();
+    window.addEventListener('scroll', updateHeaderState, { passive: true });
+    window.addEventListener('resize', updateHeaderState);
+    window.addEventListener('hashchange', updateHeaderState);
+    window.addEventListener('load', updateHeaderState);
 
     const topButton = document.querySelector('.top-link');
     if (topButton) {
