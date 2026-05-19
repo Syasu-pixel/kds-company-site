@@ -279,6 +279,7 @@
     .company-section{padding-bottom:50px}
     .contact-section{padding-top:50px}
     .contact-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;align-items:start}
+    .contact-map-wrap{display:block}
     .contact-info,.contact-form,.access-map-card{padding:24px}
     .contact-info h3,.contact-form h3,.access-map-card h3{margin:0 0 12px;font-size:28px;line-height:1.35}
     .contact-info p,.access-map-card p{margin:0 0 16px;color:var(--muted);font-size:15px}
@@ -318,13 +319,13 @@
       border:1px solid var(--line);
       border-radius:18px;
       background:#fff;
-      min-height:320px;
+      min-height:420px;
       box-shadow:inset 0 0 0 1px rgba(255,255,255,.45);
     }
     .map-frame iframe{
       display:block;
       width:100%;
-      height:320px;
+      height:420px;
       border:0;
     }
     .map-address{
@@ -449,6 +450,8 @@
       .company-grid{grid-template-columns:1fr}
       .company-grid dd{padding-left:0;padding-top:0}
       .form-grid{grid-template-columns:1fr}
+      .map-frame{min-height:320px}
+      .map-frame iframe{height:320px}
       .footer-inner{flex-direction:column;align-items:flex-start}
     }
 
@@ -678,23 +681,6 @@
             </dl>
           </div>
 
-          <aside class="card company-highlight">
-            <h3>お仕事のご依頼・ご相談</h3>
-            <p>
-              設備の新設・移設に伴う電気工事、ケーブルラック設置、配線、結線、I/Oチェック、試運転時の立会いなど、現場の状況に合わせてご相談いただけます。
-            </p>
-            <p>
-              内容がまだ固まっていない段階でも大丈夫です。工事内容、現場場所、ご希望時期など、わかる範囲でお問い合わせフォームからお送りください。
-            </p>
-            <a class="btn" href="#contact">お問い合わせフォームへ</a>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section class="section contact-section">
-      <div class="container">
-        <div class="contact-wrap">
           <div class="card contact-form">
             <div class="anchor-target" id="contact" aria-hidden="true"></div>
             <p class="section-label">FORM</p>
@@ -735,7 +721,13 @@
 
             <p class="form-note">お問い合わせ内容はフォーム送信後、担当に届きます。内容を確認のうえご連絡いたします。</p>
           </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="section contact-section">
+      <div class="container">
+        <div class="contact-map-wrap">
           <aside class="card access-map-card" aria-label="アクセスマップ">
             <p class="section-label">ACCESS</p>
             <h3>アクセスマップ</h3>
